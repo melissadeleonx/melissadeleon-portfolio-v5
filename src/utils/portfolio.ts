@@ -313,7 +313,7 @@ export const projectsSection: ProjectsSectionType = {
       name: 'RadioShack Website Redesign',
       url: 'https://melissadeleonx.github.io/',
       repo: 'https://github.com/melissadeleonx  ',
-      img: '/ddb50.gif',
+      img: '/radioshack.png',
       alt: "Radioshack Website Redesign",
       year: 2023,
       tags: ['HTML', 'CSS', 'JavaScript'],
