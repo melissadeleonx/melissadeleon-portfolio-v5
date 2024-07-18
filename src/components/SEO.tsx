@@ -8,13 +8,13 @@ type Props = {
   image: string;
   url: string;
   keywords: string[];
-};  
+};
 
 const SEO = (seoData: Props) => {
   return (
     <Head>
       <title>{seoData.title}</title>
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="/favicon.png" />
       <meta name="title" content={seoData.title} />
       <meta name="author" content={seoData.author} />
       <meta name="description" content={seoData.description} />
