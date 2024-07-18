@@ -294,7 +294,7 @@ export const projectsSection: ProjectsSectionType = {
       url: 'https://melissadeleon.com/portfoliov3/',
       repo: 'https://github.com/melissadeleonx/portfoliov3',
       img: '/v3portfolio.png',
-      alt: "Second Iteration of Melissa De Leon portfolio website",
+      alt: "Third Iteration of Melissa De Leon portfolio website",
       year: 2024,
       tags: ['ReactJS', 'Next.js', 'TailwindCSS', 'CSS', 'JavaScript', 'Yarn', 'JSON'],
     },
