@@ -280,9 +280,9 @@ export const projectsSection: ProjectsSectionType = {
     },
     {
       id: getId(),
-      name: 'Finance - Buy and Sell Stocks',
+      name: 'Wise Finance - Buy and Sell Stocks',
       url: 'https://github.com/melissadeleonx',
-      repo: 'https://github.com/melissadeleonx',
+      repo: 'https://github.com/melissadeleonx/wise-finance',
       img: '/financecs50.png',
       alt: "Finance cs50 - Buy and Sell Stocks Portfolio Manager",
       year: 2023,
