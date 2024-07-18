@@ -271,7 +271,7 @@ export const projectsSection: ProjectsSectionType = {
     {
       id: getId(),
       name: "CS50 Community Notes",
-      url: "https://melissadeleonx.github.io/cs50-community-notes",
+      url: "https://melissadeleon.com/cs50-community-notes",
       repo: "https://github.com/melissadeleonx/cs50-community-notes",
       img: "/cs50-community-notes.png",
       alt: "CS50 Community Notes",
@@ -301,7 +301,7 @@ export const projectsSection: ProjectsSectionType = {
     {
       id: getId(),
       name: 'v1 Portfolio Website',
-      url: 'https://melissadeleonx.github.io/',
+      url: 'https://melissadeleon.com/portfolio-version-1/',
       repo: 'https://github.com/melissadeleonx/melissadeleonx.github.io',
       img: '/v1portfolio.png',
       alt: "First Iteration of Melissa De Leon portfolio website",
