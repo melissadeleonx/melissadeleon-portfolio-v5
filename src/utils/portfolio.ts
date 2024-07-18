@@ -260,6 +260,26 @@ export const projectsSection: ProjectsSectionType = {
   projects: [
     {
       id: getId(),
+      name: "Google Search - CS50 Project 0",
+      url: "https://melissadeleon.com/Google-Search/",
+      repo: "https://github.com/melissadeleonx/Google-Search",
+      img: "/google-search.png",
+      alt: "Google Search clone Project 0",
+      year: 2024,
+      tags: ["CSS", "HTML", "TailwindCSS", "JavaScript",],
+    },
+    {
+      id: getId(),
+      name: "VisitSicilyNow.com - Sicily is calling you! ",
+      url: "https://visitsicilynow.com/",
+      repo: "https://github.com/melissadeleonx/visit-sicily",
+      img: "/visitsicilynow-image.png",
+      alt: "Visit Sicily Now Travel Blog",
+      year: 2024,
+      tags: ["CSS", "HTML", "Javascript", "Bootstrap", "Markdown", "YML", "JSON",],
+    },
+    {
+      id: getId(),
       name: "uniVVV Social Media Site",
       url: "https://github.com/melissadeleonx/uniVVV",
       repo: "https://github.com/melissadeleonx/uniVVV",
@@ -296,7 +316,7 @@ export const projectsSection: ProjectsSectionType = {
       img: '/v3portfolio.png',
       alt: "Third Iteration of Melissa De Leon portfolio website",
       year: 2024,
-      tags: ['ReactJS', 'Next.js', 'TailwindCSS', 'CSS', 'JavaScript', 'Yarn', 'JSON'],
+      tags: ['Jekyll', 'NodeJS', 'HTML', 'CSS', 'Javascript', 'Gulp',],
     },
     {
       id: getId(),
