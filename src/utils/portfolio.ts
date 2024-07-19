@@ -36,8 +36,8 @@ export const seoData = {
   description:
     'Documenting my tech journey — code, challenges, and victories. Through this webpage, I am tracking my progress and projects as a junior full-stack developer. Currently mastering skills with Harvard CS50 on edX.',
   author: author.name,
-  image: 'https://raw.githubusercontent.com/melissadeleonx/tech-journey/main/public/melissadeleonx-techjourney.png?v=1.0',
-  url: 'https://tech-journey-melissadeleonx.vercel.app/',
+  image: '/v4portfolio.png',
+  url: 'https://melissadeleon.com',
   keywords: [
     'Melissa',
     'Melissa De Leon',
