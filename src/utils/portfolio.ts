@@ -32,9 +32,9 @@ export const author = {
 };
 
 export const seoData = {
-  title: 'Melissa De Leon | Junior Full-Stack Developer',
+  title: 'Melissa De Leon | Software Developer',
   description:
-    'Documenting my tech journey — code, challenges, and victories. Through this webpage, I am tracking my progress and projects as a junior full-stack developer. Currently mastering skills with Harvard CS50 on edX.',
+    'Portfolio website version 4 of Melissa De Leon. Melissa De Leon is an aspiring software and web developer with a growing expertise in a diverse range of technologies. Proficient in JavaScript and Python, Melissa De Leon skillfully utilizes frameworks such as TailwindCSS, Bootstrap, Django, Flask, ReactJS, NextJS, and Typescript to create dynamic, responsive, and user-friendly applications. ',
   author: author.name,
   image: '/v4portfolio.png',
   url: 'https://melissadeleon.com',
