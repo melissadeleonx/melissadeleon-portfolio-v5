@@ -11,28 +11,28 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 .select('*')
                 .order('created_at', { ascending: false });
 
-            if (error) throw error;
-
+            if (error) {
+                return res.status(500).json({ error: error.message });
+            }
             res.status(200).json({ entries: data });
         } catch (error) {
             res.status(500).json({ error: 'Failed to fetch entries' });
         }
     } else if (req.method === 'POST') {
         try {
-            const { name, message } = req.body as GuestbookEntry;
+            const { name, message }: GuestbookEntry = req.body;
             if (!name || !message) {
                 res.status(400).json({ error: 'Name and message are required' });
-                return;
             }
 
             const { data, error } = await supabase
-                .from('entries')
+                .from('guest_entries')
                 .insert([{ name, message }]);
 
             if (error) throw error;
 
             const { data: entries, error: fetchError } = await supabase
-                .from('entries')
+                .from('guest_entries')
                 .select('*')
                 .order('created_at', { ascending: false });
 

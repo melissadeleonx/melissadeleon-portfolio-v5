@@ -1,10 +1,10 @@
-// src/pages/guestbook.tsx
 import { useState, useEffect } from 'react';
 import { Layout } from '../containers';
 import supabase from '../lib/supabaseClient'; // Import the Supabase client
 import { GuestbookEntry } from '../types/guestbook'; // Import types
 
-const formatDate = (dateString: string) => {
+const formatDate = (dateString?: string) => {
+    if (!dateString) return 'Unknown date';
     const date = new Date(dateString);
     return new Intl.DateTimeFormat('en-US', {
         month: 'long',
@@ -24,16 +24,21 @@ const Guestbook = () => {
 
     useEffect(() => {
         const fetchEntries = async () => {
-            const { data, error } = await supabase
-                .from('guest_entries') // Ensure this matches your actual table name
-                .select('*')
-                .order('created_at', { ascending: false });
+            try {
+                const { data, error } = await supabase
+                    .from('guest_entries')
+                    .select('*')
+                    .order('created_at', { ascending: false });
 
-            if (error) {
-                console.error('Failed to fetch entries:', error);
+                if (error) {
+                    console.error('Failed to fetch entries:', error);
+                    setFeedback('Failed to fetch entries. Please try again later.');
+                } else {
+                    setEntries(data || []);
+                }
+            } catch (error) {
+                console.error('An unexpected error occurred:', error);
                 setFeedback('Failed to fetch entries. Please try again later.');
-            } else {
-                setEntries(data);
             }
             setLoading(false);
         };
@@ -44,19 +49,24 @@ const Guestbook = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (name.trim() && message.trim()) {
-            const { data: newEntry, error } = await supabase
-                .from('guest_entries') // Ensure this matches your actual table name
-                .insert([{ name, message }])
-                .single(); // Fetch the inserted row
+            try {
+                const { data: newEntry, error } = await supabase
+                    .from('guest_entries') // Ensure this matches your actual table name
+                    .insert([{ name, message }])
+                    .single(); // Fetch the inserted row
 
-            if (error) {
+                if (error) {
+                    setFeedback('Failed to submit entry. Please try again.');
+                    console.error('Failed to submit entry:', error);
+                } else {
+                    setName('');
+                    setMessage('');
+                    setFeedback('Entry submitted successfully!');
+                    setEntries([newEntry, ...entries]); // Optimistically add new entry
+                }
+            } catch (error) {
                 setFeedback('Failed to submit entry. Please try again.');
-                console.error('Failed to submit entry:', error);
-            } else {
-                setName('');
-                setMessage('');
-                setFeedback('Entry submitted successfully!');
-                setEntries([newEntry, ...entries]); // Optimistically add new entry
+                console.error('An unexpected error occurred:', error);
             }
         } else {
             setFeedback('Name and message are required.');
@@ -102,8 +112,8 @@ const Guestbook = () => {
                         {entries.length > 0 ? (
                             entries.map((entry) => (
                                 <li key={entry.id} className="mb-4 p-4 border border-gray-200 rounded-lg shadow-sm">
-                                    <p className="text-lg font-semibold">{entry.name}</p>
-                                    <p className="text-gray-900 mt-2">{entry.message}</p>
+                                    <p className="text-lg font-semibold">{entry.name || 'Anonymous'}</p>
+                                    <p className="text-gray-900 mt-2">{entry.message || 'No message'}</p>
                                     <p className="text-gray-500 mt-2 text-sm">Signed on: {formatDate(entry.created_at || '')}</p>
                                 </li>
                             ))
@@ -116,5 +126,4 @@ const Guestbook = () => {
         </Layout>
     );
 };
-
 export default Guestbook;

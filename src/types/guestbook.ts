@@ -8,7 +8,3 @@ export interface GuestbookEntry {
     created_at?: string;
 }
 
-// Interface for the response from the guestbook API
-export interface GuestbookResponse {
-    entries: GuestbookEntry[];
-}
