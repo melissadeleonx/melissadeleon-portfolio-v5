@@ -1,14 +1,17 @@
-// pages/guestbook.tsx
+// src/pages/guestbook.tsx
 import { useState, useEffect } from 'react';
 import { Layout } from '../containers';
-import { GuestbookEntry, GuestbookResponse } from '../types/guestbook'; // Import types
+import supabase from '../lib/supabaseClient'; // Import the Supabase client
+import { GuestbookEntry } from '../types/guestbook'; // Import types
 
 const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return new Intl.DateTimeFormat('en-US', {
         month: 'long',
         day: 'numeric',
-        year: 'numeric'
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
     }).format(date);
 };
 
@@ -17,19 +20,22 @@ const Guestbook = () => {
     const [message, setMessage] = useState('');
     const [entries, setEntries] = useState<GuestbookEntry[]>([]);
     const [loading, setLoading] = useState(true);
+    const [feedback, setFeedback] = useState('');
 
     useEffect(() => {
         const fetchEntries = async () => {
-            try {
-                const response = await fetch('/api/guestbook');
-                const data: GuestbookResponse = await response.json();
-                console.log('Fetched entries:', data.entries); // Debugging line
-                setEntries(data.entries);
-            } catch (error) {
+            const { data, error } = await supabase
+                .from('guest_entries') // Ensure this matches your actual table name
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            if (error) {
                 console.error('Failed to fetch entries:', error);
-            } finally {
-                setLoading(false);
+                setFeedback('Failed to fetch entries. Please try again later.');
+            } else {
+                setEntries(data);
             }
+            setLoading(false);
         };
 
         fetchEntries();
@@ -38,19 +44,22 @@ const Guestbook = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (name.trim() && message.trim()) {
-            try {
-                const response = await fetch('/api/guestbook', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, message }),
-                });
-                const data: GuestbookResponse = await response.json();
-                setEntries(data.entries);
+            const { data: newEntry, error } = await supabase
+                .from('guest_entries') // Ensure this matches your actual table name
+                .insert([{ name, message }])
+                .single(); // Fetch the inserted row
+
+            if (error) {
+                setFeedback('Failed to submit entry. Please try again.');
+                console.error('Failed to submit entry:', error);
+            } else {
                 setName('');
                 setMessage('');
-            } catch (error) {
-                console.error('Failed to submit entry:', error);
+                setFeedback('Entry submitted successfully!');
+                setEntries([newEntry, ...entries]); // Optimistically add new entry
             }
+        } else {
+            setFeedback('Name and message are required.');
         }
     };
 
@@ -84,14 +93,15 @@ const Guestbook = () => {
                         Sign Guestbook
                     </button>
                 </form>
+                {feedback && <p className="text-red-500">{feedback}</p>} {/* Feedback message */}
                 <h2 className="text-2xl font-semibold mb-4">Guestbook Entries:</h2>
                 {loading ? (
                     <p>Loading entries...</p>
                 ) : (
                     <ul>
                         {entries.length > 0 ? (
-                            entries.map((entry, index) => (
-                                <li key={index} className="mb-4 p-4 border border-gray-200 rounded-lg shadow-sm">
+                            entries.map((entry) => (
+                                <li key={entry.id} className="mb-4 p-4 border border-gray-200 rounded-lg shadow-sm">
                                     <p className="text-lg font-semibold">{entry.name}</p>
                                     <p className="text-gray-900 mt-2">{entry.message}</p>
                                     <p className="text-gray-500 mt-2 text-sm">Signed on: {formatDate(entry.created_at || '')}</p>

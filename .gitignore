@@ -35,7 +35,3 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Ignore everything in the db directory
-/db/*
-# Except this file
-!/db/guestbook.db

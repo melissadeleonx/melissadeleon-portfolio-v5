@@ -1,14 +1,19 @@
 // src/pages/api/guestbook.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
-import openDb from '../../lib/db';
+import supabase from '../../lib/supabaseClient';
 import { GuestbookEntry } from '../../types/guestbook';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const db = await openDb();
     if (req.method === 'GET') {
         try {
-            const entries = await db.all('SELECT * FROM entries ORDER BY created_at DESC');
-            res.status(200).json({ entries });
+            const { data, error } = await supabase
+                .from('entries')
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            if (error) throw error;
+
+            res.status(200).json({ entries: data });
         } catch (error) {
             res.status(500).json({ error: 'Failed to fetch entries' });
         }
@@ -19,8 +24,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 res.status(400).json({ error: 'Name and message are required' });
                 return;
             }
-            await db.run('INSERT INTO entries (name, message) VALUES (?, ?)', [name, message]);
-            const entries = await db.all('SELECT * FROM entries ORDER BY created_at DESC');
+
+            const { data, error } = await supabase
+                .from('entries')
+                .insert([{ name, message }]);
+
+            if (error) throw error;
+
+            const { data: entries, error: fetchError } = await supabase
+                .from('entries')
+                .select('*')
+                .order('created_at', { ascending: false });
+
+            if (fetchError) throw fetchError;
+
             res.status(200).json({ entries });
         } catch (error) {
             res.status(500).json({ error: 'Failed to submit entry' });
@@ -30,3 +47,4 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.status(405).end(`Method ${req.method} Not Allowed`);
     }
 }
+
