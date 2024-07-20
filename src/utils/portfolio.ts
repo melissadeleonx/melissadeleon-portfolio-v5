@@ -418,10 +418,10 @@ export const projectsSection: ProjectsSectionType = {
 // * Contact Section
 
 export const contactSection: ContactSectionType = {
-  title: 'Total Number of Views',
+  title: 'Total Number of Views 👽',
   subtitle: "Beam your thoughts into my guestbook",
   paragraphs: [
-    "Thanks for landing on my corner of the galaxy! 👽 I’m all ears for messages from fellow intergalactic travelers",
+    "Thanks for landing on my corner of the galaxy! I’m all ears for messages from fellow intergalactic travelers",
   ],
   link: `/guestbook`,
 };
