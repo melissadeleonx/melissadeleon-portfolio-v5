@@ -45,7 +45,11 @@ export const seoData = {
     'melissadeleonx',
     'Portfolio',
     'Melissa De Leon Portfolio ',
-    'Melissa De Leon Tech Journey',
+    'Joey De Leon',
+    'Melissa Lara De Leon',
+    'Christopher De Leon',
+    'Jane De Leon',
+    'cs50',
   ],
 };
 /*
@@ -414,13 +418,12 @@ export const projectsSection: ProjectsSectionType = {
 // * Contact Section
 
 export const contactSection: ContactSectionType = {
-  title: 'get in touch',
-  subtitle: "what's next",
+  title: 'Total Number of Views',
+  subtitle: "Beam your thoughts into my guestbook",
   paragraphs: [
-    "I'm currently looking for a remote job or any new opportunities.",
-    'Whether you have a project to discuss or just want to say hi, my inbox is open for all!',
+    "Thanks for landing on my corner of the galaxy! 👽 I’m all ears for messages from fellow intergalactic travelers",
   ],
-  link: `mailto:${author.email}`,
+  link: `/guestbook`,
 };
 
 // Social Links Section

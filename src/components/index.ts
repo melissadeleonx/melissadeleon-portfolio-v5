@@ -16,6 +16,7 @@ import SocialIcon from './SocialIcon';
 import SocialLink from './SocialLink';
 import Tablist from './Tablist';
 import Wrapper from './Wrapper';
+import VisitorCounter from './VisitorCounter'
 
 export {
   Button,
@@ -36,4 +37,5 @@ export {
   DarkModeButton,
   FloppyBirdGame,
   WormholeButton,
+  VisitorCounter,
 };
