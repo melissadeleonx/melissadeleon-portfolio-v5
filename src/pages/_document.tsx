@@ -4,6 +4,8 @@ export default function Document() {
   return (
     <Html className="scroll-smooth" lang="en">
       <Head>
+        <link rel="icon" href="/favicon.png" />
+
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{
