@@ -21,6 +21,8 @@
     "react-favicon": "^2.0.3",
     "react-gtag": "^0.0.0",
     "sharp": "^0.31.3",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
     "three": "^0.166.1",
     "tsparticles": "^3.5.0"
   },
@@ -29,6 +31,7 @@
     "@types/node": "^18.11.3",
     "@types/react": "^18.0.21",
     "@types/react-dom": "18.0.6",
+    "@types/sqlite3": "^3.1.11",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.39",
     "prettier": "2.8.3",

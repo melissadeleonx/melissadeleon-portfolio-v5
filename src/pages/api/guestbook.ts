@@ -1,34 +1,17 @@
 // src/pages/api/guestbook.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
-import fs from 'fs';
-import path from 'path';
-import { GuestbookEntry, GuestbookResponse } from '../../types/guestbook';
+import openDb from '../../lib/db';
+import { GuestbookEntry } from '../../types/guestbook';
 
-const filePath = path.join(process.cwd(), 'public', 'guestbook.json');
-
-const readEntries = (): GuestbookEntry[] => {
-    try {
-        const fileData = fs.readFileSync(filePath, 'utf8');
-        const data = JSON.parse(fileData);
-        return data.entries || [];
-    } catch (error) {
-        console.error('Error reading guestbook file:', error);
-        return [];
-    }
-};
-
-const writeEntries = (entries: GuestbookEntry[]): void => {
-    try {
-        fs.writeFileSync(filePath, JSON.stringify({ entries }, null, 2), 'utf8');
-    } catch (error) {
-        console.error('Error writing guestbook file:', error);
-    }
-};
-
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    const db = await openDb();
     if (req.method === 'GET') {
-        const entries = readEntries();
-        res.status(200).json({ entries });
+        try {
+            const entries = await db.all('SELECT * FROM entries ORDER BY created_at DESC');
+            res.status(200).json({ entries });
+        } catch (error) {
+            res.status(500).json({ error: 'Failed to fetch entries' });
+        }
     } else if (req.method === 'POST') {
         try {
             const { name, message } = req.body as GuestbookEntry;
@@ -36,15 +19,11 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
                 res.status(400).json({ error: 'Name and message are required' });
                 return;
             }
-
-            const entries = readEntries();
-            entries.push({ name, message });
-            writeEntries(entries);
-
+            await db.run('INSERT INTO entries (name, message) VALUES (?, ?)', [name, message]);
+            const entries = await db.all('SELECT * FROM entries ORDER BY created_at DESC');
             res.status(200).json({ entries });
         } catch (error) {
-            console.error('Error handling POST request:', error);
-            res.status(500).json({ error: 'Internal Server Error' });
+            res.status(500).json({ error: 'Failed to submit entry' });
         }
     } else {
         res.setHeader('Allow', ['GET', 'POST']);

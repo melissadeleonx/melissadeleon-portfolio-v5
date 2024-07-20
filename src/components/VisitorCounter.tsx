@@ -6,9 +6,14 @@ const VisitorCounter = () => {
 
     useEffect(() => {
         const fetchCount = async () => {
-            const response = await fetch('/api/visitor');
-            const data = await response.json();
-            setCount(data.count);
+            try {
+
+                const response = await fetch('/api/visitor');
+                const data = await response.json();
+                setCount(data.count);
+            } catch (error) {
+                console.error('Failed to fetch visitor count:', error);
+            }
         };
 
         fetchCount();

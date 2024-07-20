@@ -1,21 +1,25 @@
-// pages/api/visitor.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
-import fs from 'fs';
-import path from 'path';
+import openDb from '../../lib/db';
 
-const filePath = path.join(process.cwd(), 'public', 'count.txt');
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    const db = await openDb();
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'GET') {
-        // Read the count from file
-        const count = fs.readFileSync(filePath, 'utf-8');
-        res.status(200).json({ count: parseInt(count, 10) });
+        try {
+            const count = await db.get('SELECT count FROM visitor_count WHERE id = 1');
+            res.status(200).json({ count: count ? count.count : 0 });
+        } catch (error) {
+            res.status(500).json({ error: 'Failed to fetch visitor count' });
+        }
     } else if (req.method === 'POST') {
-        // Increment the count and save it
-        let count = fs.readFileSync(filePath, 'utf-8');
-        count = (parseInt(count, 10) + 1).toString();
-        fs.writeFileSync(filePath, count);
-        res.status(200).json({ count });
+        try {
+            // Increment the visitor count
+            await db.run('UPDATE visitor_count SET count = count + 1 WHERE id = 1');
+            const count = await db.get('SELECT count FROM visitor_count WHERE id = 1');
+            res.status(200).json({ count: count ? count.count : 0 });
+        } catch (error) {
+            res.status(500).json({ error: 'Failed to update visitor count' });
+        }
     } else {
         res.setHeader('Allow', ['GET', 'POST']);
         res.status(405).end(`Method ${req.method} Not Allowed`);

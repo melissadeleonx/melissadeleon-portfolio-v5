@@ -3,6 +3,15 @@ import { useState, useEffect } from 'react';
 import { Layout } from '../containers';
 import { GuestbookEntry, GuestbookResponse } from '../types/guestbook'; // Import types
 
+const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+    }).format(date);
+};
+
 const Guestbook = () => {
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
@@ -85,6 +94,7 @@ const Guestbook = () => {
                                 <li key={index} className="mb-4 p-4 border border-gray-200 rounded-lg shadow-sm">
                                     <p className="text-lg font-semibold">{entry.name}</p>
                                     <p className="text-gray-900 mt-2">{entry.message}</p>
+                                    <p className="text-gray-500 mt-2 text-sm">Signed on: {formatDate(entry.created_at || '')}</p>
                                 </li>
                             ))
                         ) : (
