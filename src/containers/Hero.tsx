@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Button, FloppyBirdGame, Wrapper, WormholeButton } from '../components';
+import { Button, FloppyBirdGame, Wrapper } from '../components';
 import useWindowWidth from '../hooks/use-window-width';
 import { getBreakpointsWidth } from '../utils/helper';
 import { heroSection } from '../utils/portfolio';
@@ -66,7 +66,6 @@ const Hero = () => {
       >
         {specialText}
       </motion.p> */}
-        <WormholeButton />
 
 
         {cta && (

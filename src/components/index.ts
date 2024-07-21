@@ -1,7 +1,7 @@
 import Button from './Button';
 import DarkModeButton from './DarkModeButton';
 import FloppyBirdGame from './FloppyBirdGame';
-import WormholeButton from './WormholeButton';
+import WormholeEffect from './WormholeEffect';
 import HeroImage from './HeroImage';
 import Link from './Link';
 import ListItem from './ListItem';
@@ -16,7 +16,6 @@ import SocialIcon from './SocialIcon';
 import SocialLink from './SocialLink';
 import Tablist from './Tablist';
 import Wrapper from './Wrapper';
-import VisitorCounter from './VisitorCounter'
 
 export {
   Button,
@@ -36,6 +35,5 @@ export {
   Link,
   DarkModeButton,
   FloppyBirdGame,
-  WormholeButton,
-  VisitorCounter,
+  WormholeEffect,
 };

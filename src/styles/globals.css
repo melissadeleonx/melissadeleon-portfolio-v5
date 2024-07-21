@@ -121,28 +121,93 @@
   color: #ef4444;
 }
 
-.wormhole {
+/* src/styles/globals.css or appropriate CSS module */
+:root {
+  --deg: 1;
+  --x: -50%;
+  --y: -50%;
+  --speed: 150ms;
+}
+
+.wormhole-effect {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.8) 70%);
-  transform: translate(-50%, -50%);
-  animation: wormholeEffect 10s forwards;
-  pointer-events: none;
-  /* Prevent interaction while animating */
+  transform: translate(var(--x, -50%), var(--y, -50%)) rotate(0deg);
+  font-size: 20vmin;
+  width: 3em;
+  height: 3em;
+  border-radius: 90% 95% 85% 105%;
+  background: #0f0;
+  mix-blend-mode: screen;
+  filter: hue-rotate(0deg);
+  animation: wobble calc(var(--speed) * var(--t)) linear infinite;
+  transform-origin: -var(--y) -var(--x);
+  box-shadow: 0 0 .5em .2em #000 inset, 0 0 .15em 0 #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  /* Ensure it appears above other content */
 }
 
-@keyframes wormholeEffect {
-  0% {
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 1;
-  }
+.wormhole-effect::after {
+  font-size: 1em;
+  content: '';
+  white-space: nowrap;
+}
 
-  100% {
-    transform: translate(-50%, -50%) scale(5);
-    opacity: 0;
+.wormhole-effect:nth-child(1) {
+  --x: -53%;
+  --y: -53%;
+  --t: 37;
+}
+
+.wormhole-effect:nth-child(2) {
+  --x: -47%;
+  --y: -52%;
+  --t: 58;
+}
+
+.wormhole-effect:nth-child(3) {
+  --x: -45%;
+  --y: -50%;
+  --t: 46;
+}
+
+.wormhole-effect:nth-child(4) {
+  --x: -53%;
+  --y: -45%;
+  --t: 72;
+}
+
+.wormhole-effect:nth-child(5) {
+  --x: -55%;
+  --y: -45%;
+  --t: 62;
+}
+
+@keyframes wobble {
+  to {
+    filter: hue-rotate(360deg);
+    transform: translate(var(--x), var(--y)) rotate(360deg);
   }
+}
+
+.close-wormhole {
+  position: fixed;
+  top: 10%;
+  right: 10%;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+  /* Ensure it appears above the wormhole effect */
 }

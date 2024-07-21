@@ -418,12 +418,12 @@ export const projectsSection: ProjectsSectionType = {
 // * Contact Section
 
 export const contactSection: ContactSectionType = {
-  title: 'Total Number of Views 👽',
-  subtitle: "Beam your thoughts into my guestbook",
+  title: 'uniVVV',
+  subtitle: "where the universe is yours to explore! ",
   paragraphs: [
-    "Thanks for landing on my corner of the galaxy! I’m all ears for messages from fellow intergalactic travelers",
+    "My latest project that’s set to revolutionize how species across the universe connect! This social media game is designed to bridge connections today and into the future. ",
   ],
-  link: `/guestbook`,
+  link: ``,
 };
 
 // Social Links Section

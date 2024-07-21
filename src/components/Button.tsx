@@ -21,11 +21,11 @@ interface ButtonProps extends DefaultProps {
 
 type Props =
   | ({
-      type?: 'button';
-    } & ButtonProps)
+    type?: 'button';
+  } & ButtonProps)
   | ({
-      type: 'link';
-    } & LinkProps);
+    type: 'link';
+  } & LinkProps);
 
 // For separating animation props from button props
 const buttonProps: Array<keyof Props | keyof LinkProps> = [
@@ -49,13 +49,11 @@ const Button = (props: Props & MotionProps) => {
     ...rest
   } = props;
 
-  const classes = `${
-    size === 'sm'
-      ? 'p-2 px-4 text-sm border-[1.5px] '
-      : 'text-sm p-4 px-6 border-2'
-  } block ${
-    center ? 'mx-auto' : ''
-  } w-fit font-mono capitalize rounded border-accent text-accent hover:bg-accent-light focus:outline-none focus:bg-accent-light duration-150 cursor-pointer ${className}`;
+  const classes = `${size === 'sm'
+    ? 'p-2 px-4 text-sm border-[1.5px] '
+    : 'text-sm p-4 px-6 border-2'
+    } block ${center ? 'mx-auto' : ''
+    } w-fit font-mono capitalize rounded border-accent text-accent hover:bg-accent-light focus:outline-none focus:bg-accent-light duration-150 cursor-pointer ${className}`;
 
   // TODO: Needs to improve this framer motion logic
   if (props.type === 'link') {
@@ -65,18 +63,20 @@ const Button = (props: Props & MotionProps) => {
     return (
       <motion.span {...motionProps}>
         <Link
-          className={classes}
           href={props.href}
           target={sameTab ? '_self' : '_blank'}
           rel="noopener noreferrer"
+          legacyBehavior
         >
-          {children}
+          <a className={classes}>
+            {children}
+          </a>
         </Link>
       </motion.span>
     );
   }
 
-  if (type == 'button') {
+  if (type === 'button') {
     return (
       <button type={type} className={classes} onClick={props.onClick}>
         {children}
