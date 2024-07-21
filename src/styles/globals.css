@@ -110,7 +110,7 @@
 }
 
 .dark .tagline-dark {
-  color: text-slate-200;
+  animation: rainbow 10s infinite linear;
 }
 
 .tagline-dark {
