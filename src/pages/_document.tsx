@@ -7,7 +7,7 @@ export default function Document() {
       <Head>
         <link rel="icon" href="/favicon.png" />
 
-        {/* Google Tag Manager */}
+        {/* Google Tag Manager/Analytics */}
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-76N2RZQFV6"
@@ -44,3 +44,4 @@ export default function Document() {
     </Html>
   );
 }
+

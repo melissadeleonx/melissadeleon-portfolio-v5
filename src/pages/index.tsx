@@ -17,10 +17,10 @@ const Home: NextPage = () => {
       <SEO {...seoData} />
       <Layout>
         <Hero />
+        <Projects />
         <About />
         <Skills />
         <Experience />
-        <Projects />
         <Contact />
       </Layout>
     </>

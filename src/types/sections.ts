@@ -56,6 +56,7 @@ export interface ExperienceSectionType extends Section {
 }
 
 export interface ProjectsSectionType extends Section {
+  subtitle?: string;
   projects: ProjectType[];
 }
 

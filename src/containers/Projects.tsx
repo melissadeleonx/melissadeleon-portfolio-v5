@@ -7,7 +7,7 @@ import { projectsSection } from '../utils/portfolio';
 import { getSectionAnimation, projectVariants } from '../animations';
 
 const Projects = () => {
-  const { projects, title } = projectsSection;
+  const { projects, title, subtitle } = projectsSection;
   const [showMore, setShowMore] = useState(false);
   const topProjects = projects.slice(0, PROJECTS_INITIALLY);
 
@@ -19,8 +19,13 @@ const Projects = () => {
         {...getSectionAnimation}
         className="heading-secondary text-center !mb-12"
       >
+        <p className="text-accent text-sm capitalize mb-3 font-mono">
+          {subtitle}
+        </p>
+
         {title}
       </motion.h2>
+
       <div className="grid grid-cols-auto-250 xs:grid-cols-auto-300 gap-6 place-items-center">
         {sortByYear(visibleProjects).map((project, i) => {
           if (i < PROJECTS_INITIALLY) {

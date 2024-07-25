@@ -260,7 +260,8 @@ export const experienceSection: ExperienceSectionType = {
 // * Projects Section
 
 export const projectsSection: ProjectsSectionType = {
-  title: 'Projects and Certificates',
+  title: 'My Pride and Joy',
+  subtitle: "study. code. debug. Building and Deploying Projects Everyday!",
   projects: [
     {
       id: getId(),
