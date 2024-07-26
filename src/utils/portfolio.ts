@@ -265,7 +265,17 @@ export const projectsSection: ProjectsSectionType = {
   projects: [
     {
       id: getId(),
-      name: "Google Search - CS50 Project 0",
+      name: "Science Wiki - CS50 Project 1",
+      url: "https://sciencewiki-dba83ffdf24f.herokuapp.com/",
+      repo: "https://github.com/melissadeleonx/science-wiki",
+      img: "/sciencewiki.png",
+      alt: "Science Wiki website",
+      year: 2024,
+      tags: ["Django", "Python", "JavaScript", "HTML", "CSS", "Bootstrap", "API", "Heroku"],
+    },
+    {
+      id: getId(),
+      name: "Google Search Website - CS50 Project 0",
       url: "https://melissadeleon.com/Google-Search/",
       repo: "https://github.com/melissadeleonx/Google-Search",
       img: "/google-search.png",
@@ -275,7 +285,7 @@ export const projectsSection: ProjectsSectionType = {
     },
     {
       id: getId(),
-      name: "VisitSicilyNow.com - Sicily is calling you! ",
+      name: "VisitSicilyNow.com - Sicily Travel Website! ",
       url: "https://visitsicilynow.com/",
       repo: "https://github.com/melissadeleonx/visit-sicily",
       img: "/visitsicilynow-image.png",
