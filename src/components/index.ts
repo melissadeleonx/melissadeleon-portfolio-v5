@@ -16,6 +16,8 @@ import SocialIcon from './SocialIcon';
 import SocialLink from './SocialLink';
 import Tablist from './Tablist';
 import Wrapper from './Wrapper';
+import CookieConsent from './CookieConsent';
+
 
 export {
   Button,
@@ -36,4 +38,5 @@ export {
   DarkModeButton,
   FloppyBirdGame,
   WormholeEffect,
+  CookieConsent,
 };
