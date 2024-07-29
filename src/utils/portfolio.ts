@@ -295,9 +295,9 @@ export const projectsSection: ProjectsSectionType = {
     },
     {
       id: getId(),
-      name: "uniVVV Social Media Site",
-      url: "https://github.com/melissadeleonx/uniVVV",
-      repo: "https://github.com/melissadeleonx/uniVVV",
+      name: "uniVVV V1 Social Media Site",
+      url: "https://melissadeleon.com/uniVVV-version1/",
+      repo: "https://github.com/melissadeleonx/uniVVV-version1",
       img: "/univvvflask.png",
       alt: "uniVVV Intergalactic Social Media Site Screenshot",
       year: 2023,
