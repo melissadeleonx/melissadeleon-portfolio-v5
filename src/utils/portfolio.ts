@@ -266,7 +266,7 @@ export const projectsSection: ProjectsSectionType = {
     {
       id: getId(),
       name: "Science Wiki - CS50 Project 1",
-      url: "https://sciencewiki-dba83ffdf24f.herokuapp.com/",
+      url: "https://melissadeleon.com/wiki/",
       repo: "https://github.com/melissadeleonx/science-wiki",
       img: "/sciencewiki.png",
       alt: "Science Wiki website",
