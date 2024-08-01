@@ -86,7 +86,7 @@ const Navbar = () => {
       className="px-8 md:px-6 xl:px-12 py-4 fixed inset-x-0 top-0 right-0 flex justify-between items-end z-50 duration-500 backdrop-blur-lg"
     >
       <h1 className="site-logo font-signature text-accent capitalize text-2xl relative group top-1 hover:text-decoration-none">
-        <a href="/#hero" className="block">
+        <a href="/" className="block">
           {author.name}
           <div className="absolute bottom-1.5 left-0 h-[1px] w-0 bg-accent duration-300"></div>
         </a>

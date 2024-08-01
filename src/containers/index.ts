@@ -10,6 +10,7 @@ import Experience from './Experience';
 import SocialLinks from './SocialLinks';
 import Projects from './Projects';
 import Layout from './Layout';
+import Websites from './Websites';
 
 export {
   Navbar,
@@ -24,4 +25,5 @@ export {
   SocialLinks,
   Projects,
   Layout,
+  Websites,
 };

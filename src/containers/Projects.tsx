@@ -61,9 +61,14 @@ const Projects = () => {
           center
           onClick={() => setShowMore((prev) => !prev)}
         >
-          {showMore ? 'show less' : 'show more'}
+          {showMore ? 'show less' : 'show my certificates'}
         </Button>
       )}
+      <a href="/websites">
+        <p className="text-accent text-center text-lg capitalize mb-3 mt-3 font-mono hover:text-white">
+          View all of my projects and websites here &rarr;
+        </p>
+      </a>
     </Wrapper>
   );
 };

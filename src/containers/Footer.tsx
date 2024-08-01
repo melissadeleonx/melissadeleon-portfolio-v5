@@ -22,6 +22,15 @@ const Footer = () => {
       >
         {footerSection.title2}
       </a>
+      <br />
+      <a
+        href={footerSection.link3}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-accent transition"
+      >
+        {footerSection.title3}: primavita19@gmail.com
+      </a>
     </footer>
   );
 };

@@ -8,6 +8,7 @@ import {
   ProjectsSectionType,
   SkillsSectionType,
   SocialSectionType,
+  WebsitesSectionType,
 } from '../types/sections';
 import { StringKeyValueType } from '../types';
 import { resumeFileName } from './config';
@@ -63,9 +64,9 @@ export const seoData = {
 export const navbarSection: NavbarSectionType = {
   navLinks: [
     { name: 'about', url: '/#about' },
-    { name: 'skills', url: '/#skills' },
-    { name: 'experience', url: '/#experience' },
     { name: 'projects', url: '/#projects' },
+    { name: 'websites', url: '/websites' },
+    { name: 'experience', url: '/#skills' },
     { name: 'contact', url: '/#contact' },
   ],
   cta: {
@@ -261,8 +262,202 @@ export const experienceSection: ExperienceSectionType = {
 
 export const projectsSection: ProjectsSectionType = {
   title: 'My Pride and Joy',
-  subtitle: "study. code. debug. Building and Deploying Projects Everyday!",
+  subtitle: "study. code. debug. repeat.",
   projects: [
+    {
+      id: getId(),
+      name: "Science Wiki - CS50 Project 1",
+      url: "https://melissadeleon.com/wiki/",
+      repo: "https://github.com/melissadeleonx/science-wiki",
+      img: "/sciencewiki.png",
+      alt: "Science Wiki website",
+      year: 2024,
+      tags: ["Django", "Python", "JavaScript", "HTML", "CSS", "Bootstrap", "API", "Heroku"],
+    },
+    {
+      id: getId(),
+      name: "Google Search Website - CS50 Project 0",
+      url: "https://melissadeleon.com/Google-Search/",
+      repo: "https://github.com/melissadeleonx/Google-Search",
+      img: "/google-search.png",
+      alt: "Google Search clone Project 0",
+      year: 2024,
+      tags: ["CSS", "HTML", "TailwindCSS", "JavaScript",],
+    },
+    {
+      id: getId(),
+      name: "VisitSicilyNow.com - Sicily Travel Website! ",
+      url: "https://visitsicilynow.com/",
+      repo: "https://github.com/melissadeleonx/visit-sicily",
+      img: "/visitsicilynow-image.png",
+      alt: "Visit Sicily Now Travel Blog",
+      year: 2024,
+      tags: ["CSS", "HTML", "Javascript", "Bootstrap", "Markdown", "YML", "JSON",],
+    },
+    {
+      id: getId(),
+      name: "uniVVV V1 Social Media Site",
+      url: "https://melissadeleon.com/uniVVV-version1/",
+      repo: "https://github.com/melissadeleonx/uniVVV-version1",
+      img: "/univvvflask.png",
+      alt: "uniVVV Intergalactic Social Media Site Screenshot",
+      year: 2023,
+      tags: ["Flask", "Python", "Jinja", "HTML", "Bootstrap CSS", "JavaScript",],
+    },
+    {
+      id: getId(),
+      name: "CS50 Community Notes",
+      url: "https://melissadeleon.com/cs50-community-notes",
+      repo: "https://github.com/melissadeleonx/cs50-community-notes",
+      img: "/cs50-community-notes.png",
+      alt: "CS50 Community Notes",
+      year: 2024,
+      tags: ["Markdown", "HTML", "CSS", "Boostrap", "Jekyll", "JavaScript", "YML", "GIT", "bash", "PDF", "jquery"],
+    },
+    {
+      id: getId(),
+      name: 'v3 Portfolio Website',
+      url: 'https://melissadeleon.com/portfoliov3/',
+      repo: 'https://github.com/melissadeleonx/portfoliov3',
+      img: '/v3portfolio.png',
+      alt: "Third Iteration of Melissa De Leon portfolio website",
+      year: 2024,
+      tags: ['Jekyll', 'NodeJS', 'HTML', 'CSS', 'Javascript', 'Gulp',],
+    },
+    {
+      id: getId(),
+      name: 'v2 Portfolio Website',
+      url: 'https://tech-journey-melissadeleonx.vercel.app/',
+      repo: 'https://github.com/melissadeleonx/tech-journey',
+      img: '/v2portfolio.png',
+      alt: "Second Iteration of Melissa De Leon portfolio website",
+      year: 2024,
+      tags: ['ReactJS', 'Next.js', 'TailwindCSS', 'CSS', 'JavaScript', 'Yarn', 'JSON'],
+    },
+    {
+      id: getId(),
+      name: 'v1 Portfolio Website',
+      url: 'https://melissadeleon.com/portfolio-version-1/',
+      repo: 'https://github.com/melissadeleonx/melissadeleonx.github.io',
+      img: '/v1portfolio.png',
+      alt: "First Iteration of Melissa De Leon portfolio website",
+      year: 2023,
+      tags: ['HTML', 'CSS', 'JavaScript'],
+    },
+    {
+      id: getId(),
+      name: 'Rainbow Piano App',
+      url: 'https://scratch.mit.edu/projects/913216059/',
+      repo: 'https://github.com/melissadeleonx  ',
+      img: '/rainbowpiano-scratch.png',
+      alt: "Scratch Rainbow Piano App",
+      year: 2023,
+      tags: ['Scratch'],
+    },
+    {
+      id: getId(),
+      name: 'edX Verified Certificate',
+      url: 'https://courses.edx.org/certificates/cef15cace46045b4a84aa49f314170e9/',
+      repo: 'https://github.com/melissadeleonx  ',
+      img: '/HarvardEDX.png',
+      alt: "HarvardX Verified Certificate through EDX",
+      year: 2023,
+      tags: ['C Programming', 'Python', 'SQL', 'Algorithm', 'Data Structure', 'Web Development'],
+    },
+    {
+      id: getId(),
+      name: 'CS50 Harvard Certificate',
+      url: 'https://certificates.cs50.io/5bb89bee-1225-4ac5-981a-5d75a17a0661.pdf?size=letter',
+      repo: 'https://github.com/melissadeleonx  ',
+      img: '/CS50x.png',
+      alt: "CS50 Harvard Certificate",
+      year: 2023,
+      tags: ['C Programming', 'Python', 'SQL', 'HTML', 'CSS', 'JavaScript', 'Flask', 'Jinja'],
+    },
+    {
+      id: getId(),
+      name: 'LinkedIn Certificate for C Programming',
+      url: 'https://www.linkedin.com/learning/certificates/580417c3e416ac5be3237cb2e07776a5fbd69e801a7550cce110bb6961a77002?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BbLxg1JM%2FR1q8SL318zGqPA%3D%3D',
+      repo: 'https://github.com/melissadeleonx  ',
+      img: '/Linkedin-Certificate-CProgramming.png',
+      alt: "LinkedIn Certificate for C Programming",
+      year: 2023,
+      tags: ['C Programming'],
+    },
+    {
+      id: getId(),
+      name: 'LinkedIn Certificate for Python Programming',
+      url: 'https://www.linkedin.com/learning/certificates/edca1028de539b8aade13e0f3b29a65a1c7551a680f2f6b0b98b74e103a0c095?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BbLxg1JM%2FR1q8SL318zGqPA%3D%3D',
+      repo: 'https://github.com/melissadeleonx  ',
+      img: '/LinkedIn-Certificate-Python-Programming.png',
+      alt: "LinkedIn Certificate for Python Programming",
+      year: 2023,
+      tags: ['Python Programming'],
+    },
+    {
+      id: getId(),
+      name: 'LinkedIn Certificate for Web Development',
+      url: 'https://www.linkedin.com/learning/certificates/8d75ce725a898755b092dbefaf98a91a0fb3dbfa31d3c181f251756972e6edf5',
+      repo: 'https://github.com/melissadeleonx  ',
+      img: '/Linkedin-Certificate-WebDev.png',
+      alt: "LinkedIn Certificate for Web Development",
+      year: 2023,
+      tags: ['Web Development'],
+    },
+  ],
+};
+
+// * Contact Section
+
+export const contactSection: ContactSectionType = {
+  title: 'uniVVV',
+  subtitle: "where the universe is yours to explore! ",
+  paragraphs: [
+    "My latest project that’s set to revolutionize how species across the universe connect! This social media game is designed to bridge connections today and into the future. ",
+  ],
+  link: ``,
+};
+
+// Social Links Section
+
+export const socialSection: SocialSectionType = {
+  socialLinks: [
+    {
+      icon: 'tabler:brand-github',
+      url: socialLinks.github,
+    },
+    {
+      icon: 'mdi:instagram',
+      url: socialLinks.instagram,
+    },
+    {
+      icon: 'lucide:twitter',
+      url: socialLinks.twitter,
+    },
+    {
+      icon: 'lucide:linkedin',
+      url: socialLinks.linkedin,
+    },
+  ],
+};
+
+// Footer Section
+
+export const footerSection: FooterSectionType = {
+  title: 'Copyright © 2024 Melissa De Leon @melissadeleonx',
+  link: 'https://github.com/melissadeleonx',
+  title2: 'MIT License',
+  link2: '/',
+  title3: 'Email me',
+  link3: 'mailto:primavita19@gmail.com',
+};
+
+// * Websites Section
+
+export const websitesSection: WebsitesSectionType = {
+  title: 'My Collection of Websites',
+  subtitle: "These are the websites I’ve developed, each reflecting my commitment and pride in my work.",
+  websites: [
     {
       id: getId(),
       name: "Science Wiki - CS50 Project 1",
@@ -383,108 +578,5 @@ export const projectsSection: ProjectsSectionType = {
       year: 2023,
       tags: ['HTML', 'CSS', 'JavaScript'],
     },
-    {
-      id: getId(),
-      name: 'Rainbow Piano App',
-      url: 'https://scratch.mit.edu/projects/913216059/',
-      repo: 'https://github.com/melissadeleonx  ',
-      img: '/rainbowpiano-scratch.png',
-      alt: "Scratch Rainbow Piano App",
-      year: 2023,
-      tags: ['Scratch'],
-    },
-    {
-      id: getId(),
-      name: 'edX Verified Certificate',
-      url: 'https://courses.edx.org/certificates/cef15cace46045b4a84aa49f314170e9/',
-      repo: 'https://github.com/melissadeleonx  ',
-      img: '/HarvardEDX.png',
-      alt: "HarvardX Verified Certificate through EDX",
-      year: 2023,
-      tags: ['C Programming', 'Python', 'SQL', 'Algorithm', 'Data Structure', 'Web Development'],
-    },
-    {
-      id: getId(),
-      name: 'CS50 Harvard Certificate',
-      url: 'https://certificates.cs50.io/5bb89bee-1225-4ac5-981a-5d75a17a0661.pdf?size=letter',
-      repo: 'https://github.com/melissadeleonx  ',
-      img: '/CS50x.png',
-      alt: "CS50 Harvard Certificate",
-      year: 2023,
-      tags: ['C Programming', 'Python', 'SQL', 'HTML', 'CSS', 'JavaScript', 'Flask', 'Jinja'],
-    },
-    {
-      id: getId(),
-      name: 'LinkedIn Certificate for C Programming',
-      url: 'https://www.linkedin.com/learning/certificates/580417c3e416ac5be3237cb2e07776a5fbd69e801a7550cce110bb6961a77002?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BbLxg1JM%2FR1q8SL318zGqPA%3D%3D',
-      repo: 'https://github.com/melissadeleonx  ',
-      img: '/Linkedin-Certificate-CProgramming.png',
-      alt: "LinkedIn Certificate for C Programming",
-      year: 2023,
-      tags: ['C Programming'],
-    },
-    {
-      id: getId(),
-      name: 'LinkedIn Certificate for Python Programming',
-      url: 'https://www.linkedin.com/learning/certificates/edca1028de539b8aade13e0f3b29a65a1c7551a680f2f6b0b98b74e103a0c095?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3BbLxg1JM%2FR1q8SL318zGqPA%3D%3D',
-      repo: 'https://github.com/melissadeleonx  ',
-      img: '/LinkedIn-Certificate-Python-Programming.png',
-      alt: "LinkedIn Certificate for Python Programming",
-      year: 2023,
-      tags: ['Python Programming'],
-    },
-    {
-      id: getId(),
-      name: 'LinkedIn Certificate for Web Development',
-      url: 'https://www.linkedin.com/learning/certificates/8d75ce725a898755b092dbefaf98a91a0fb3dbfa31d3c181f251756972e6edf5',
-      repo: 'https://github.com/melissadeleonx  ',
-      img: '/Linkedin-Certificate-WebDev.png',
-      alt: "LinkedIn Certificate for Web Development",
-      year: 2023,
-      tags: ['Web Development'],
-    },
   ],
-};
-
-// * Contact Section
-
-export const contactSection: ContactSectionType = {
-  title: 'uniVVV',
-  subtitle: "where the universe is yours to explore! ",
-  paragraphs: [
-    "My latest project that’s set to revolutionize how species across the universe connect! This social media game is designed to bridge connections today and into the future. ",
-  ],
-  link: ``,
-};
-
-// Social Links Section
-
-export const socialSection: SocialSectionType = {
-  socialLinks: [
-    {
-      icon: 'tabler:brand-github',
-      url: socialLinks.github,
-    },
-    {
-      icon: 'mdi:instagram',
-      url: socialLinks.instagram,
-    },
-    {
-      icon: 'lucide:twitter',
-      url: socialLinks.twitter,
-    },
-    {
-      icon: 'lucide:linkedin',
-      url: socialLinks.linkedin,
-    },
-  ],
-};
-
-// Footer Section
-
-export const footerSection: FooterSectionType = {
-  title: 'Copyright © 2024 Melissa De Leon @melissadeleonx',
-  link: 'https://github.com/melissadeleonx',
-  title2: 'MIT License',
-  link2: '/',
 };

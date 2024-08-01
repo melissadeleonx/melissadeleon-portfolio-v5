@@ -5,6 +5,7 @@ import {
   ProjectType,
   SocialLinkType,
   SoftwareSkillType,
+  WebsitesType,
 } from '.';
 
 export interface Section {
@@ -75,4 +76,11 @@ export interface FooterSectionType extends Section {
   link: string;
   title2: string;
   link2: string;
+  title3: string;
+  link3: string;
+}
+
+export interface WebsitesSectionType extends Section {
+  subtitle?: string;
+  websites: WebsitesType[];
 }

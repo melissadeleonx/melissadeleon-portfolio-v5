@@ -35,6 +35,18 @@ export type ProjectType = {
   repo: string;
 };
 
+export type WebsitesType = {
+  id: string;
+  name: string;
+  url: string;
+  year: number;
+  img: string;
+  alt: string;
+  tags: string[];
+  repo: string;
+};
+
+
 export type StringKeyValueType = {
   [link: string]: string;
 };
