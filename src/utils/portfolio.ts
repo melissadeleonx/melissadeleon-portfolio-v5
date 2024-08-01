@@ -32,7 +32,7 @@ export const author = {
 };
 
 export const seoData = {
-  title: 'Melissa De Leon | Software Developer',
+  title: 'Melissa De Leon | Software and Web Developer',
   description:
     'Portfolio website version 4 of Melissa De Leon. Melissa De Leon is an aspiring software and web developer with a growing expertise in a diverse range of technologies. Proficient in JavaScript and Python, Melissa De Leon skillfully utilizes frameworks such as TailwindCSS, Bootstrap, Django, Flask, ReactJS, NextJS, and Typescript to create dynamic, responsive, and user-friendly applications. ',
   author: author.name,
@@ -79,7 +79,7 @@ export const navbarSection: NavbarSectionType = {
 export const heroSection: HeroSectionType = {
   subtitle: "Ciao and Mabuhay 🐱, I'm ",
   title: 'Melissa De Leon',
-  tagline: 'Software Developer',
+  tagline: 'Web Developer',
   description:
     "Got an idea for a project? Let's make it happen!",
 
