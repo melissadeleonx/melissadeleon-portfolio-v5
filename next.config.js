@@ -10,7 +10,8 @@ module.exports = {
       },
     ],
   },
-  basePath: '/melissadeleon-portfolio-v5',
+  basePath: '/melissadeleon-portfolio-v5', // GitHub Pages repository name
+  assetPrefix: '/melissadeleon-portfolio-v5/',
   async headers() {
     return [
       {
