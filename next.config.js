@@ -1,15 +1,3 @@
-// /** @type {import('next').NextConfig} */
-// module.exports = {
-//   reactStrictMode: true,
-//   images: {
-//     domains: ['user-images.githubusercontent.com'],
-//   },
-//   experimental: {
-//     appDir: false,
-//   },
-// };
-
-/** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
   images: {
@@ -17,18 +5,15 @@ module.exports = {
       {
         protocol: 'https',
         hostname: 'user-images.githubusercontent.com',
-        port: '', // Default port (leave empty)
-        pathname: '/**', // Adjust the pathname as needed
+        port: '',
+        pathname: '/**',
       },
     ],
   },
-  // experimental: {
-  //   appDir: false,
-  // },
+  basePath: '/melissadeleon-portfolio-v5',
   async headers() {
     return [
       {
-        // Set Cache-Control header for static assets (images, etc.)
         source: '/static/(.*)',
         headers: [
           {
@@ -40,4 +25,3 @@ module.exports = {
     ];
   },
 };
-
