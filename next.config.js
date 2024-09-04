@@ -2,7 +2,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    // Configuration for images hosted on external URLs (not needed for local images in `public`)
     remotePatterns: [
       {
         protocol: 'https',
@@ -12,8 +11,6 @@ module.exports = {
       },
     ],
   },
-  basePath: '/melissadeleon-portfolio-v5', // GitHub Pages repository name (if served from a subpath)
-  assetPrefix: '/melissadeleon-portfolio-v5/', // GitHub Pages repository name (if served from a subpath)
   async headers() {
     return [
       {
