@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  /* Color variables for future use */
+  :root {
+    /* --color-bg: #fcfaf8; */
+    /* --color-accent: #14cf93; */
+    /* --color-accent: ##64ffda; */
+    /* --color-accent: #61dafb); */
+    /* --color-text: #383838; */
+    /* --color-dark-2: #282828; */
+    /* --color-dark-3: #a2a2a2; */
+
+    /* Light Theme */
+    --color-bg: theme(colors.slate.50);
+    --color-bg-secondary: theme(colors.white);
+    --color-accent: theme(colors.red.400);
+    --color-accent-light: theme(colors.red.400/0.1);
+    --color-text: theme(colors.slate.600);
+    --color-dark-1: theme(colors.slate.900);
+    --color-dark-2: theme(colors.slate.700);
+    --color-dark-3: theme(colors.slate.300);
+  }
+
+  /* Dark Theme */
+  .dark {
+    --color-bg: #0a0d11;
+    --color-bg-secondary: #111827;
+    --color-accent: #ef4444;
+    --color-accent-light: rgba(239, 68, 68, 0.1);
+    --color-text: theme(colors.slate.400);
+    --color-dark-1: theme(colors.slate.200);
+    --color-dark-2: theme(colors.slate.300);
+    --color-dark-3: theme(colors.slate.700);
+  }
+
+  @font-face {
+    font-family: 'agustina';
+    src: url('/fonts/Agustina-Signature.otf') format('opentype');
+  }
+
+  * {
+    @apply focus:outline-dashed outline-[3px] outline-offset-4 outline-accent;
+  }
+}
+
+
+/* TYPOGRAPHY */
+
+.heading-secondary {
+  @apply text-3xl sm:text-4xl capitalize font-medium mb-8 sm:mb-12 text-dark-2;
+}
+
+
+@keyframes rainbow {
+  0% {
+    color: #FF0000;
+  }
+
+  14% {
+    color: #FF7F00;
+  }
+
+  28% {
+    color: #FFFF00;
+  }
+
+  42% {
+    color: #00FF00;
+  }
+
+  57% {
+    color: #00FFFF;
+  }
+
+  71% {
+    color: #0000FF;
+  }
+
+  85% {
+    color: #4B0082;
+  }
+
+  100% {
+    color: #FF0000;
+  }
+}
+
+/* Special Rainbow Effect */
+.rainbow-text {
+  animation: rainbow 3s infinite linear;
+  /* Change duration as needed */
+}
+
+/* Styling for logo and hero elements*/
+.site-logo {
+  font-weight: bold;
+
+}
+
+.dark .site-logo {
+  animation: rainbow 10s infinite linear;
+}
+
+.dark .title-dark {
+  color: text-slate-200;
+}
+
+.dark .tagline-dark {
+  animation: rainbow 10s infinite linear;
+}
+
+.tagline-dark {
+  color: #ef4444;
+}
+
+.dark .description-dark {
+  color: #ef4444;
+}
+
+/* src/styles/globals.css or appropriate CSS module */
+:root {
+  --deg: 1;
+  --x: -50%;
+  --y: -50%;
+  --speed: 150ms;
+}
+
+.wormhole-effect {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(var(--x, -50%), var(--y, -50%)) rotate(0deg);
+  font-size: 20vmin;
+  width: 3em;
+  height: 3em;
+  border-radius: 90% 95% 85% 105%;
+  background: #0f0;
+  mix-blend-mode: screen;
+  filter: hue-rotate(0deg);
+  animation: wobble calc(var(--speed) * var(--t)) linear infinite;
+  transform-origin: -var(--y) -var(--x);
+  box-shadow: 0 0 .5em .2em #000 inset, 0 0 .15em 0 #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.wormhole-effect::after {
+  font-size: 1em;
+  content: '';
+  white-space: nowrap;
+}
+
+.wormhole-effect:nth-child(1) {
+  --x: -53%;
+  --y: -53%;
+  --t: 37;
+}
+
+.wormhole-effect:nth-child(2) {
+  --x: -47%;
+  --y: -52%;
+  --t: 58;
+}
+
+.wormhole-effect:nth-child(3) {
+  --x: -45%;
+  --y: -50%;
+  --t: 46;
+}
+
+.wormhole-effect:nth-child(4) {
+  --x: -53%;
+  --y: -45%;
+  --t: 72;
+}
+
+.wormhole-effect:nth-child(5) {
+  --x: -55%;
+  --y: -45%;
+  --t: 62;
+}
+
+@keyframes wobble {
+  to {
+    filter: hue-rotate(360deg);
+    transform: translate(var(--x), var(--y)) rotate(360deg);
+  }
+}
+
+.close-wormhole {
+  position: fixed;
+  top: 10%;
+  right: 10%;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+}
